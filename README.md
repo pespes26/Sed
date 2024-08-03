@@ -43,7 +43,7 @@ python Sed.py "<commands>" <file>
   - `p/pattern/` - Print lines matching pattern.
   - `n/pattern/` - Get the next line matching pattern.
   - `w//new content/` - Write `new content` to the specified file.
-  - `l//` - List all available commands.
+  - `L` - List all available commands.
 - **List Available Commands**:
 
   ```sh
