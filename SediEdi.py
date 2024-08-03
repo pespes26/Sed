@@ -80,7 +80,7 @@ def list_commands():
         'i': 'Insert - Insert text before each line matched by a pattern',
         'd': 'Delete - Delete lines matching a pattern',
         'w': 'Write - Write new content to the file',
-        'l': 'List - List all available commands'
+        'ls': 'List - List all available commands'
     }
     print("Available commands:")
     for cmd, desc in commands.items():
