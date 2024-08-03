@@ -10,6 +10,8 @@ A limited version of the `sed` utility implemented in Python, supporting basic t
   - `a`: Append text after each line matched by a pattern.
   - `i`: Insert text before each line matched by a pattern.
   - `d`: Delete lines matching a pattern.
+  - `p`: Print lines matching a pattern.
+  - `n`: Get the next line matching a pattern.
   - `w`: Write new content to a file.
   - `l`: List all available commands.
 
@@ -18,6 +20,8 @@ A limited version of the `sed` utility implemented in Python, supporting basic t
 ### Command Format
 
 The command format is:
+
+
 
 ```
 [address[,address]]command/pattern/replacement_or_text/
@@ -28,7 +32,7 @@ The command format is:
 - **List Available Commands**:
 
   ```sh
-  python SediEdi.py 'l///'
+  python SediEdi.py 'l//'  # (Does not require a file name)
   ```
 
 - **Write New Content**: Write "new content" to `sample.txt`:
@@ -60,6 +64,16 @@ The command format is:
   ```sh
   python SediEdi.py '3,7d/sample/' sample.txt
   ```
+  
+- **Print ('p')**: Print lines matching "sample":
+  ```sh
+  python SediEdi.py 'p/sample/' sample.txt
+  ```
+ 
+- **Next Line ('n')**:  Get the next line after the one matching "sample":
+  ```sh
+  python SediEdi.py 'n/sample/' sample.txt
+  ```
 
 - **Reading from Standard Input**:
   ```sh
@@ -80,5 +94,7 @@ The command format is:
   - `a/pattern/append text/` - Append `append text` after each line matched by `pattern`.
   - `i/pattern/insert text/` - Insert `insert text` before each line matched by `pattern`.
   - `d/pattern/` - Delete lines matching `pattern`.
+  - `p/pattern/` - Print lines matching pattern.
+  - `n/pattern/` - Get the next line matching pattern.
   - `w//new content/` - Write `new content` to the specified file.
   - `l//` - List all available commands.
