@@ -28,6 +28,11 @@ python Sed.py "<commands>" <file>
 - `[1addr]`: One address
 - `[2addr]`: Two addresses
 
+#### Exit Values
+
+- `0`: Successful completion.
+- `>0`: An error occurred.
+  
 #### Editing Commands
 
 - **Editing Commands**:
@@ -194,8 +199,3 @@ python Sed.py "<commands>" <file>
 27. **[0addr] `#`**
     - Ignore the `#` and the remainder of the line (treat them as a comment).
 
-
-### Exit Values
-
-- `0`: Successful completion.
-- `>0`: An error occurred.
