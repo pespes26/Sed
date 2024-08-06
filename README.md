@@ -38,7 +38,7 @@ python BasicSed.py -f "command1;command2;..." filename
 - **Substitute (`s`)**: replace "brown" with "green" in example.txt:
 
   ```sh
-	python BasicSed.py -f "s/brown/green/" example.txt
+  python BasicSed.py -f "s/brown/green/" example.txt
   ```
 
 - **Append (`a`)**: Append text after each line matched by a pattern:
@@ -63,7 +63,7 @@ python BasicSed.py -f "command1;command2;..." filename
   ```sh
   python BasicSed.py -f "p/All/" example.txt
   ```
-- **Print all the content ('P'):
+- **Print all the content ('P')**:
   ```sh
   python BasicSed.py -f "P" example.txt
   ```
