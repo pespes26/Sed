@@ -99,7 +99,7 @@ python BasicSed.py -f "L"
 - `>0`: An error occurred.
 
 #### Example File Content
-
+```sh
 The quick brown fox jumps over the lazy dog.
 Python is a versatile programming language.
 Regular expressions can be tricky to master.
@@ -148,6 +148,7 @@ Time flies when you're having fun.
 To err is human, to forgive divine.
 Two heads are better than one.
 When in Rome, do as the Romans do.
+```
 
 
 
