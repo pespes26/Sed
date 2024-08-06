@@ -33,8 +33,6 @@ python BasicSed.py -f "command1;command2;..." filename
 
 ### Examples
 
-- **List Available Commands**:
-
 - **Substitute (`s`)**: replace "brown" with "green" in example.txt:
 
   ```sh
@@ -67,6 +65,11 @@ python BasicSed.py -f "command1;command2;..." filename
   ```sh
   python BasicSed.py -f "P" example.txt
   ```
+- **Combine multiple commands in example.txt***:
+  ```sh
+  python BasicSed.py -f "s/brown/green/;d/data/;p/All/" example.txt
+  ```
+
   
 ### String Mode
 
