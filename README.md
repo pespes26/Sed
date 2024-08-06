@@ -18,7 +18,7 @@ A simple script to perform basic `sed`-like text manipulations on files or strin
 - `h` - Replace the hold space with the pattern space contents.
 - `H` - Append the pattern space to the hold space with a newline.
 - `l` - Write the pattern space to standard output in an unambiguous form.
-- `P` - Print the pattern space up to the first newline.
+- `P` - Print all the content
 - `q` - Quit the script.
 
 ## Usage
