@@ -91,6 +91,12 @@ To display the help message with the available commands:
 ```bash
 python BasicSed.py -f "L"
 ```
+To activate the venv:
+```bash
+cd to the script path
+venv\Scripts\activate
+```
+
 
 ### Exit Values
 
