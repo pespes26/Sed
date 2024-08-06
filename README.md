@@ -28,8 +28,9 @@ A simple script to perform basic `sed`-like text manipulations on files or strin
 To perform operations on a file, use the `-f` flag followed by the commands and the file name.
 
 ```bash
-python BasicSed.py -f "command1;command2;..." filename```
-  
+python BasicSed.py -f "command1;command2;..." filename
+```
+
 ### Examples
 
 - **List Available Commands**:
@@ -62,7 +63,7 @@ python BasicSed.py -f "command1;command2;..." filename```
   ```sh
   python BasicSed.py -f "p/All/" example.txt
   ```
--**Print all the content ('P'):
+- **Print all the content ('P'):
   ```sh
   python BasicSed.py -f "P" example.txt
   ```
