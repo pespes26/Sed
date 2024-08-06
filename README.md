@@ -82,10 +82,9 @@ Instead enter the file name , you should enter the string.
 ### Output
 
 For each command, the script provides feedback:
-
--*If the pattern is found, it prints the relevant lines.
--*If the pattern is not found, it prints a proper message.
--*After all commands are executed, it prints the final content.
+- If the pattern is found, it prints the relevant lines.
+- If the pattern is not found, it prints a proper message.
+- After all commands are executed, it prints the final content.
 
 ### Help
 To display the help message with the available commands:
