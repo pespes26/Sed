@@ -23,11 +23,11 @@ def sed_cases(commands, input_data, is_file=True):
         content = input_data.splitlines(keepends=True)
 
     if content is None:
-        return
+        return 1
 
     if not content:
         print("\nInput content is empty.")
-        return
+        return 1
 
     for command_text in commands:
         if command_text.startswith('s/') and command_text.endswith('/'):
