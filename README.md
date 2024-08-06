@@ -29,13 +29,8 @@ To perform operations on a file, use the `-f` flag followed by the commands and 
 
 ```bash
 python BasicSed.py -f "command1;command2;..." filename```
-
-#### Exit Values
-
-- `0`: Successful completion.
-- `>0`: An error occurred.
   
-#### Examples
+### Examples
 
 - **List Available Commands**:
 
@@ -80,7 +75,7 @@ python BasicSed.py -s "command1;command2;..." "your input string"
 ```
 Instead enter the file name , you should enter the string.
 
-#### Output
+### Output
 
 For each command, the script provides feedback:
 
@@ -88,14 +83,19 @@ For each command, the script provides feedback:
 -*If the pattern is not found, it prints a proper message.
 -*After all commands are executed, it prints the final content.
 
-#### Help
+### Help
 To display the help message with the available commands:
 ```bash
 python BasicSed.py -f "L"
 ```
 
-##### Example File Content
--***Here is an example content of example.txt to test the script:
+### Exit Values
+
+- `0`: Successful completion.
+- `>0`: An error occurred.
+
+#### Example File Content
+
 The quick brown fox jumps over the lazy dog.
 Python is a versatile programming language.
 Regular expressions can be tricky to master.
