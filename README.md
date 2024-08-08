@@ -6,16 +6,6 @@ A simple script to perform basic `sed`-like text manipulations on files or strin
 
 `sed.py` allows you to perform text substitutions, deletions, insertions, and other manipulations on text files or strings. The script supports multiple commands and provides feedback after each command is executed.
 
-## Usage
-
-### File Mode
-
-To perform operations on a file, use the `-f` flag followed by the commands and the file name.
-
-```bash
-python BasicSed.py -f "command1;command2;..." filename
-```
-
 ### Examples
 
 - **Substitute (`s`)**: replace "brown" with "green" in example.txt:
@@ -65,8 +55,8 @@ python BasicSed.py -f "command1;command2;..." filename
 
 ## Options
 
-- **-e**:Add the script of editing commands to the end of the script. This option can be used multiple times.
-- **-f**:Add the editing commands in the file script_file to the end of the script. This option can be used multiple times.
+- **-e **:Add the script of editing commands to the end of the script. This option can be used multiple times.
+- **-f **:Add the editing commands in the file script_file to the end of the script. This option can be used multiple times.
 
 ### Output
 
