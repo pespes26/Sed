@@ -43,14 +43,14 @@ A simple script to perform basic `sed`-like text manipulations on files or strin
   ```sh
   python sed.py -e "s/old/new/" -e "d/remove/" sample.txt
   ```
+    or
+  ```sh
+  python sed.py -e "command1;command2;..." filename.txt
+  ```
 
 - **Or using script file:**
   ```sh
   python sed.py -f script_file.sed sample.txt
-  ```
-  or
-  ```sh
-  python sed.py -e "command1;command2;..." filename.txt
   ```
 
 ## Options
