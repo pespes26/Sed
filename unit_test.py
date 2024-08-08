@@ -17,7 +17,7 @@ class TestSed(unittest.TestCase):
         # Test case for substitution
         input_data = "The date is Jun 10."
         expected_output = "The date is DATE."
-        result = process_sed("s/Jun [0-9][0-9]/DATE/g", input_data, is_file=False)
+        result = process_sed("s/Jun [0-9][0-9]/DATE/", input_data, is_file=False)
         self.assertEqual(result, expected_output)
     
     def test_deletion(self):
@@ -62,7 +62,7 @@ Regular expressions can be tricky to master.
 Text manipulation is a common task in scripting.
 Efficient code can save a lot of time.
 Debugging is an essential skill for developers."""
-        result = process_sed("s/Python/Java/g", input_data, is_file=False)
+        result = process_sed("s/Python/Java/", input_data, is_file=False)
         self.assertEqual(result, expected_output)
 
     def test_deletion_file(self):
@@ -99,14 +99,14 @@ Python is a versatile programming language."""
         # Test case for multiple substitutions
         input_data = "I love Python.\nPython is great."
         expected_output = "I love Java.\nJava is great."
-        result = process_sed("s/Python/Java/g", input_data, is_file=False)
+        result = process_sed("s/Python/Java/", input_data, is_file=False)
         self.assertEqual(result, expected_output)
 
     def test_substitution_and_deletion(self):
         # Test case for substitution and deletion
         input_data = "Remove this line.\nKeep this line.\nSubstitute this."
         expected_output = "Keep this line.\nChanged this."
-        result = process_sed("d/Remove/;s/Substitute/Changed/g", input_data, is_file=False)
+        result = process_sed("d/Remove/;s/Substitute/Changed/", input_data, is_file=False)
         self.assertEqual(result, expected_output)
 
     def test_append_and_insertion(self):
@@ -141,14 +141,14 @@ Python is a versatile programming language."""
         # Test case for complex substitution
         input_data = "This is a test.\nTesting 123."
         expected_output = "This is a test.\nChanged 123."
-        result = process_sed("s/Testing/Changed/g", input_data, is_file=False)
+        result = process_sed("s/Testing/Changed/", input_data, is_file=False)
         self.assertEqual(result, expected_output)
 
     def test_substitution_no_match(self):
         # Test case for substitution with no match
         input_data = "No match here."
         expected_output = "No match here."
-        result = process_sed("s/NotHere/Changed/g", input_data, is_file=False)
+        result = process_sed("s/NotHere/Changed/", input_data, is_file=False)
         self.assertEqual(result, expected_output)
 
     def test_deletion_no_match(self):
