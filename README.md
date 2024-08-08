@@ -4,7 +4,7 @@ A simple script to perform basic `sed`-like text manipulations on files or strin
 
 ## Description
 
-`BasicSed.py` allows you to perform text substitutions, deletions, insertions, and other manipulations on text files or strings. The script supports multiple commands and provides feedback after each command is executed.
+`sed.py` allows you to perform text substitutions, deletions, insertions, and other manipulations on text files or strings. The script supports multiple commands and provides feedback after each command is executed.
 
 ## Usage
 
