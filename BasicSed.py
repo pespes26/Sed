@@ -23,7 +23,11 @@ def sed_cases(commands, input_data, is_file=True):
         content = input_data.splitlines(keepends=True)
 
     if content is None:
-        return
+        return 1
+
+    if not content:
+        print("\nInput content is empty.")
+        return 1
 
     if not content:
         print("\nInput content is empty.")
