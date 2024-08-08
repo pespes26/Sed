@@ -131,10 +131,7 @@ def process_sed(commands, input_data, suppress_output=False, is_file=True):
                     matched_lines = [line for line in content if re.search(pattern, line)]
                     if matched_lines:
                         click.echo(f"\nPrinting lines matching '{pattern}'")
-                        if suppress_output:
-                            result.extend(matched_lines)
-                        else:
-                            for line in matched_lines:
+                        for line in matched_lines:
                                 click.echo(f"{line}", nl=False)
                     else:
                         click.echo(f"\n'{pattern}' not found")
