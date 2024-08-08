@@ -18,6 +18,25 @@ ERROR_UNKNOWN = 7
 def main(e, f, files):
     """
     A simple sed-like utility that uses regular expressions to substitute text.
+    
+    \b
+    Usage examples:
+    - Substitute "old" with "new" in a file:
+      python sed.py -e "s/old/new/" sample.txt
+    
+    - Delete lines containing "remove":
+      python sed.py -e "d/remove/" sample.txt
+    
+    - Insert "Inserted text" before lines containing "match":
+      echo "Line to match" | python sed.py -e "i/match/Inserted text"
+    
+    - Append "additional text" after lines containing "append":
+      python sed.py -e "a/append/additional text/" sample.txt
+    
+    - Print lines containing "pattern":
+      python sed.py -e "p/pattern/" sample.txt
+    
+    Multiple commands can be combined using the `-e` option multiple times or using a script file with the `-f` option.
     """
     try:
         scripts = [script for script in e if script.strip()] + [line for file in f for line in file.read().splitlines()]
@@ -57,6 +76,17 @@ def main(e, f, files):
         sys.exit(ERROR_UNKNOWN)
 
 def process_sed(commands, input_data, is_file=True):
+    """
+    Process a series of sed-like commands on given input data.
+    
+    Args:
+        commands (str): The commands to execute.
+        input_data (str): The path to the file or the input string to process.
+        is_file (bool): Flag indicating whether input_data is a file path or a direct string.
+    
+    Returns:
+        str: The processed string with the applied commands.
+    """
     try:
         if is_file:
             content = read_file(input_data)
@@ -75,37 +105,47 @@ def process_sed(commands, input_data, is_file=True):
                 if re.match(r'^s/.*/.*/$', cmd):
                     original, new = cmd.split('/')[1:3]
                     if any(re.search(original, line) for line in content):
+                        click.echo(f"\nReplacing {original} with {new}")
                         content = [re.sub(original, new, line) for line in content]
                     else:
                         click.echo(f"\n'{original}' not found")
                 elif re.match(r'^d/.*/$', cmd):
                     pattern = cmd.split('/')[1]
                     if any(re.search(pattern, line) for line in content):
+                        click.echo(f"\nDeleting {pattern} from matched lines.")
                         content = [line for line in content if not re.search(pattern, line)]
                     else:
                         click.echo(f"\n'{pattern}' not found")
                 elif re.match(r'^a/.*/.*/$', cmd):
                     pattern, newtext = cmd.split('/')[1:3]
                     new_content = []
-                    for line in content:
-                        new_content.append(line)
-                        if re.search(pattern, line):
-                            new_content.append(newtext + '\n')
-                    content = new_content
+                    if any(re.search(pattern, line) for line in content):
+                        click.echo(f"\nAppending {newtext} after matched lines.")
+                        for line in content:
+                            new_content.append(line)
+                            if re.search(pattern, line):
+                                new_content.append(newtext + '\n')
+                        content = new_content
+                    else:
+                        click.echo(f"\n{pattern} not found.")
                 elif re.match(r'^i/.*/.*/$', cmd):
                     pattern, newtext = cmd.split('/')[1:3]
                     new_content = []
-                    for line in content:
-                        if re.search(pattern, line):
-                            new_content.append(newtext + '\n')
-                        new_content.append(line)
-                    content = new_content
+                    if any(re.search(pattern, line) for line in content):
+                        click.echo(f"\Insert {newtext} before matched lines.")
+                        for line in content:
+                            if re.search(pattern, line):
+                                new_content.append(newtext + '\n')
+                            new_content.append(line)
+                        content = new_content
+                    else:
+                        click.echo(f"\n{pattern} not found.")
                 elif re.match(r'^p/.*/$', cmd):
                     pattern = cmd.split('/')[1]
                     matched_lines = [line for line in content if re.search(pattern, line)]
                     if matched_lines:
                         result = "".join(matched_lines)
-                        click.echo(f"Matched lines:\n{result}")
+                        click.echo(f"\nMatched lines:\n{result}")
                         return "".join(matched_lines)
                     else:
                         click.echo(f"\n'{pattern}' not found")
@@ -117,8 +157,10 @@ def process_sed(commands, input_data, is_file=True):
                 sys.exit(ERROR_PROCESSING_FILE)
 
         if result:
+            click.echo("\n"+"".join(result))
             return "".join(result)
         else:
+            click.echo("\n"+"".join(content))
             return "".join(content)
 
     except Exception as err:
@@ -126,6 +168,15 @@ def process_sed(commands, input_data, is_file=True):
         sys.exit(ERROR_PROCESSING_FILE)
 
 def read_file(file_path):
+    """
+    Read the content of a file.
+    
+    Args:
+        file_path (str): The path to the file to read.
+    
+    Returns:
+        list: A list of lines read from the file.
+    """
     try:
         with open(file_path, 'r') as file:
             return [line if line.endswith('\n') else line + '\n' for line in file.readlines()]
@@ -137,6 +188,13 @@ def read_file(file_path):
         sys.exit(ERROR_READING_FILE)
 
 def write_file(file_path, content):
+    """
+    Write content to a file.
+    
+    Args:
+        file_path (str): The path to the file to write.
+        content (list): A list of lines to write to the file.
+    """
     try:
         with open(file_path, 'w') as file:
             file.writelines(content)
