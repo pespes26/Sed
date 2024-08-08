@@ -95,7 +95,6 @@ python BasicSed.py -f "L"
 ```
 
 ##### Example File Content
--***Here is an example content of example.txt to test the script:
 The quick brown fox jumps over the lazy dog.
 Python is a versatile programming language.
 Regular expressions can be tricky to master.
