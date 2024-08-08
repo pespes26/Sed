@@ -55,8 +55,8 @@ A simple script to perform basic `sed`-like text manipulations on files or strin
 
 ## Options
 
-- **-e **:Add the script of editing commands to the end of the script. This option can be used multiple times.
-- **-f **:Add the editing commands in the file script_file to the end of the script. This option can be used multiple times.
+- **-e** :Add the script of editing commands to the end of the script. This option can be used multiple times.
+- **-f** :Add the editing commands in the file script_file to the end of the script. This option can be used multiple times.
 
 ### Output
 
