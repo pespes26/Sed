@@ -91,3 +91,9 @@ venv\Scripts\activate
 - 5: Error reading file.
 - 6: Error writing file.
 - 7: Unknown error.
+
+### Unit Test
+to activate the unittest:
+```bash
+python -m unittest unit_test.py
+```
